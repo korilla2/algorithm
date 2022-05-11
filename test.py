@@ -1,24 +1,18 @@
-cnt = 0
+result = dict()
 
-temp = dict()
+result[0] = 2
+result[1] = 3
 
-temp[0] = 2
-temp[1] = 3
+cnt = 2
 
-
-ptr = 2
-
-for n in range(5, 1001, 2):
-    i = 1
-    while temp[i] ** 2 <= n:
-        cnt += 2
-        if n % temp[i] == 0:
+for i in range(5, 13, 2):
+    k = 1
+    while result[k] ** 2 <= i:
+        if i % result[k] == 0:
             break
-        i += 1
+        k += 1
 
     else:
-        temp[ptr] = n
-        ptr += 1
+        result[cnt] = i
         cnt += 1
-print(cnt)
-print(temp)
+print(*result.values())
